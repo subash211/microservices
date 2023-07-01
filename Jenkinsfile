@@ -76,60 +76,60 @@ pipeline {
                 parallel (
                     'docker login': {
                         withCredentials([string(credentialsId: 'dockerPass', variable: 'dockerPassword')]) {
-                            sh "docker login -u comdevops -p ${dockerPassword}"
+                            sh "docker login -u subash211 -p ${dockerPassword}"
                         }
                     },
                     'ui-web-app-reactjs': {
                         dir('ui-web-app-reactjs'){
                             sh """
-                            docker build -t comdevops/ui:v1 .
-                            docker push comdevops/ui:v1
-                            docker rmi comdevops/ui:v1
+                            docker build -t subash211/ui:v1 .
+                            docker push subash211/ui:v1
+                            docker rmi subash211/ui:v1
                             """
                         }
                     },
                     'zuul-api-gateway' : {
                         dir('zuul-api-gateway'){
                             sh """
-                            docker build -t comdevops/api:v1 .
-                            docker push comdevops/api:v1
-                            docker rmi comdevops/api:v1
+                            docker build -t subash211/api:v1 .
+                            docker push subash211/api:v1
+                            docker rmi subash211/api:v1
                             """
                         }
                     },
                     'offers-microservice-spring-boot': {
                         dir('offers-microservice-spring-boot'){
                             sh """
-                            docker build -t comdevops/spring:v1 .
-                            docker push comdevops/spring:v1
-                            docker rmi comdevops/spring:v1
+                            docker build -t subash211/spring:v1 .
+                            docker push subash211/spring:v1
+                            docker rmi subash211/spring:v1
                             """
                         }
                     },
                     'shoes-microservice-spring-boot': {
                         dir('shoes-microservice-spring-boot'){
                             sh """
-                            docker build -t comdevops/spring:v2 .
-                            docker push comdevops/spring:v2
-                            docker rmi comdevops/spring:v2
+                            docker build -t subash211/spring:v2 .
+                            docker push subash211/spring:v2
+                            docker rmi subash211/spring:v2
                             """
                         }
                     },
                     'cart-microservice-nodejs': {
                         dir('cart-microservice-nodejs'){
                             sh """
-                            docker build -t comdevops/ui:v2 .
-                            docker push comdevops/ui:v2
-                            docker rmi comdevops/ui:v2
+                            docker build -t subash211/ui:v2 .
+                            docker push subash211/ui:v2
+                            docker rmi subash211/ui:v2
                             """
                         }
                     },
                     'wishlist-microservice-python': {
                         dir('wishlist-microservice-python'){
                             sh """
-                            docker build -t comdevops/python:v1 .
-                            docker push comdevops/python:v1
-                            docker rmi comdevops/python:v1
+                            docker build -t subash211/python:v1 .
+                            docker push subash211/python:v1
+                            docker rmi subash211/python:v1
                             """
                         }
                     }
