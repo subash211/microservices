@@ -23,7 +23,7 @@ resource "kubernetes_deployment" "shoe" {
       }
       spec {
         container {
-          image = "comdevops/spring:v2"
+          image = "subash211/spring:v2"
           name  = "shoe"
           port {
             container_port = 1002
